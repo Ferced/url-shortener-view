@@ -7,16 +7,16 @@ export class UrlItem extends Component {
       background: '#f4f4f4',
       padding: '10px',
       borderBottom: '1px #ccc dotted',
-      textDecoration: this.props.todo.completed ? 'line-through' : 'none'
     }
   }
 
   render() {
+    console.log(this.props.urls)
     const { id, url_corta, url_original } = this.props.url;
     return (
       <div style={this.getStyle()}>
         <p>
-          { url_corta}
+          {url_corta}
         </p>
 
       </div>
@@ -27,8 +27,6 @@ export class UrlItem extends Component {
 // PropTypes
 UrlItem.propTypes = {
   url: PropTypes.object.isRequired,
-  markComplete: PropTypes.func.isRequired,
-  delTodo: PropTypes.func.isRequired,
 }
 
 const btnStyle = {

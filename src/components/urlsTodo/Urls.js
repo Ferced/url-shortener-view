@@ -3,7 +3,9 @@ import UrlItem from './UrlItem';
 import PropTypes from 'prop-types';
 
 class Urls extends Component {
+  
   render() {
+    console.log(this.props.urls)
     return this.props.urls.map((url) => (
       <UrlItem key={url.id} url={url} />
     ));
