@@ -11,12 +11,15 @@ export class UrlItem extends Component {
   }
 
   render() {
-    console.log(this.props.urls)
     const { id, url_corta, url_original } = this.props.url;
     return (
       <div style={this.getStyle()}>
         <p>
-          {url_corta}
+
+          Url corta: { url_corta} 
+        </p>
+        <p>
+          Url orginal: { url_original} 
         </p>
 
       </div>
