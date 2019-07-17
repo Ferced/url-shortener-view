@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
-import Footeringui from './components/layout/Footer';
+import Footer from './components/layout/Footer';
 import Urls from './components/urlsTodo/Urls';
-import About from './components/pages/About';
+import UrlShortener from './components/pages/UrlShortener';
 // import uuid from 'uuid';
 import axios from 'axios';
 
@@ -27,7 +27,12 @@ class App extends Component {
       })
         .then(res => this.setState({ urls: [...this.state.urls, res.data] }));
     }
-
+    ingresarUrl= (url_original) => {
+      axios.post('http://127.0.0.1:5000/url_shortener', {
+        url_original,
+      })
+        .then(res => this.setState({ urls: [...this.state.urls, res.data] }));
+    }
   render() {
 
     return (
@@ -41,8 +46,8 @@ class App extends Component {
                 <Urls urls={this.state.urls}/>
               </React.Fragment>
             )} />
-            <Route path="/about" component={About} />
-           <Footeringui />
+            <Route path="/url_shortener" component={UrlShortener} />
+           <Footer />
           </div>  
         </div>
       </Router>
